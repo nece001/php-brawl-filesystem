@@ -1,5 +1,5 @@
 {
-    "name": "nece001/php-brawl-sms",
+    "name": "nece001/php-brawl-filesystem",
     "description": "php 文件系统基础服务项目",
     "type": "library",
     "license": "MIT",
