@@ -85,11 +85,11 @@ abstract class FileSystemAbstract extends ClientAbstract implements FileSystemIn
      * @DateTime 2023-06-18
      *
      * @param string $uri
-     * @param int $expires 超时时间（分钟）
+     * @param int $expires 超时时间（秒）
      *
      * @return string
      */
-    public function buildUrl($uri, $expires = null)
+    public function buildUrl(string $uri, $expires = null)
     {
         return $this->base_url . '/' . $uri;
     }
@@ -113,7 +113,7 @@ abstract class FileSystemAbstract extends ClientAbstract implements FileSystemIn
      * @Author nece001@163.com
      * @DateTime 2023-06-17
      * 
-     * @param int $expires 超时时间（分钟）
+     * @param int $expires 超时时间（秒）
      *
      * @return string
      */
