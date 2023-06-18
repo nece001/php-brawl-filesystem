@@ -73,7 +73,7 @@ interface FileSystemInterface
      *
      * @return void
      */
-    public function upload(string $frolocalm, string $to): void;
+    public function upload(string $local, string $to): void;
 
     /**
      * 文件是否存在
