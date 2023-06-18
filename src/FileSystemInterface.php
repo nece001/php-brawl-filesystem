@@ -29,7 +29,7 @@ interface FileSystemInterface
      * @Author nece001@163.com
      * @DateTime 2023-06-17
      *
-     * @param string $path 相对路径
+     * @param string $path 相对路径（已存在的文件）
      * @param string $content
      *
      * @return void
@@ -68,12 +68,12 @@ interface FileSystemInterface
      * @Author nece001@163.com
      * @DateTime 2023-06-17
      *
-     * @param string $from 绝对路径
+     * @param string $local 绝对路径
      * @param string $to 相对路径
      *
      * @return void
      */
-    public function upload(string $from, string $to): void;
+    public function upload(string $frolocalm, string $to): void;
 
     /**
      * 文件是否存在
@@ -160,26 +160,15 @@ interface FileSystemInterface
     public function readDir(string $path): array;
 
     /**
-     * 获取签名url
+     * 生成预签名 URL
      *
      * @Author nece001@163.com
      * @DateTime 2023-06-17
      * 
      * @param string $path 相对路径
+     * @param int $expires 过期时间
      *
      * @return string
      */
-    public function getSignUrl(string $path): string;
-
-    /**
-     * 获取临时签名url
-     *
-     * @Author nece001@163.com
-     * @DateTime 2023-06-17
-     * 
-     * @param string $path 相对路径
-     *
-     * @return string
-     */
-    public function getTempSignUrl(string $path): string;
+    public function buildPreSignedUrl(string $path, $expires = null): string;
 }

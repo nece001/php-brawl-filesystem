@@ -76,7 +76,22 @@ abstract class FileSystemAbstract extends ClientAbstract implements FileSystemIn
     protected function setUri($uri)
     {
         $this->uri = str_replace('\\', '/', $uri);
-        $this->url = $this->base_url . '/' . $this->uri;
+    }
+
+    /**
+     * 构建URL
+     *
+     * @Author nece001@163.com
+     * @DateTime 2023-06-18
+     *
+     * @param string $uri
+     * @param int $expires 超时时间（分钟）
+     *
+     * @return string
+     */
+    public function buildUrl($uri, $expires = null)
+    {
+        return $this->base_url . '/' . $uri;
     }
 
     /**
@@ -97,12 +112,14 @@ abstract class FileSystemAbstract extends ClientAbstract implements FileSystemIn
      *
      * @Author nece001@163.com
      * @DateTime 2023-06-17
+     * 
+     * @param int $expires 超时时间（分钟）
      *
      * @return string
      */
-    public function getUrl()
+    public function getUrl($expires = null)
     {
-        return $this->url;
+        return $this->buildUrl($this->uri, $expires);
     }
 
     /**
