@@ -4,7 +4,6 @@ namespace Nece\Brawl\FileSystem;
 
 use Error;
 use Nece\Brawl\ConfigAbstract;
-use Nece\Brawl\Sms\SmsException;
 use ReflectionClass;
 
 /**
@@ -53,7 +52,7 @@ class Factory
             $instance->setConfig($config);
             return $instance;
         } catch (Error $e) {
-            throw new SmsException('不支持的文件系统');
+            throw new FileSystemException('不支持的文件系统');
         }
     }
 }
