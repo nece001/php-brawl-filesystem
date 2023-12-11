@@ -2,7 +2,6 @@
 
 namespace Nece\Brawl\FileSystem;
 
-use Error;
 use Nece\Brawl\ConfigAbstract;
 use ReflectionClass;
 use Throwable;
@@ -56,7 +55,7 @@ class Factory
             $instance = new $class();
             $instance->setConfig($config);
             return $instance;
-        } catch (Error $e) {
+        } catch (Throwable $e) {
             throw new FileSystemException('不支持的文件系统');
         }
     }
