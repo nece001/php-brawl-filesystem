@@ -5,6 +5,7 @@ namespace Nece\Brawl\FileSystem;
 use Error;
 use Nece\Brawl\ConfigAbstract;
 use ReflectionClass;
+use Throwable;
 
 /**
  * 实例工厂
@@ -26,8 +27,12 @@ class Factory
      */
     public static function createConfig($provider)
     {
-        $class = __NAMESPACE__ . '\\' . ucfirst($provider) . '\\Config';
-        return new $class();
+        try {
+            $class = __NAMESPACE__ . '\\' . ucfirst($provider) . '\\Config';
+            return new $class();
+        } catch (Throwable $e) {
+            throw new FileSystemException('不支持的服务商：' . $e->getMessage());
+        }
     }
 
     /**
