@@ -91,7 +91,7 @@ abstract class FileSystemAbstract extends ClientAbstract implements FileSystemIn
      */
     public function buildUrl(string $uri, $expires = null)
     {
-        return $this->base_url . '/' . $uri;
+        return $this->base_url . '/' . ltrim($uri, '/');
     }
 
     /**
